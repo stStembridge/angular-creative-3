@@ -1,0 +1,62 @@
+.individualpost {
+    margin-bottom: 15px;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+html,
+body {
+    background-color: lightgrey;
+    color: White;
+    background-image: url(https://images.pexels.com/photos/1308624/pexels-photo-1308624.jpeg?auto=compress&cs=tinysrgb&h=350);
+}
+
+#select {
+    color: black;
+}
+
+
+.hero.is-success {
+    background-color: #00284d;
+    color: #fff;
+}
+
+.box {
+    border-radius: 0;
+    padding: 0.25rem;
+}
+
+#create {
+    color: white;
+    background-color: #00284d;
+    border-color: white;
+    border-radius: 5px;
+}
+
+#start {
+    color: white;
+    background-color: #00284d;
+    border-color: white;
+    border-radius: 5px;
+    display: block;
+    margin: auto;
+}
+
+input {
+    color: black;
+}
+
+.charblock {
+    width: 65%;
+    margin: auto;
+}
+
+.card {
+    border-radius:5px;
+    margin-bottom:5px;
+    background-color:#eff3ff;
+}

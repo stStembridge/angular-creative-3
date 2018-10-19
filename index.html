@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Characters</title>
+    </title>
+     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+<body>
+    <section class= "hero is-success is-small">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+        <h1 class= "title"> Create Characters for a Quest!</h1>
+        <h3 class="subtitle"> Beware! Here be dragons... </h3>
+        </div>
+        </div>
+    </section>
+    <div class="box cta">
+    </div>
+    
+    <div class="container">
+     <p>Actions:</p>
+     <span class= "glyphicon glyphicon-glass"></span>&nbspGive Potion<br>
+     <span class= "glyphicon glyphicon-flash"></span>&nbspKill <br>
+     <span class= "glyphicon glyphicon-fire"></span>&nbspDamage <br>
+     <span class= "glyphicon glyphicon-transfer"></span>&nbspChange Sides
+     </div>
+     <br>
+     
+    <div class = "container" ng-app='Pics' ng-controller='MainCtrl'>
+        <button id="start" onclick= "createFunction()">Build your Character</button>
+        <form id="buildform" ng-submit="addPost()" style="display: none">
+            <input placeholder="Name" ng-model="title"></input>
+            <input placeholder="Image URL" ng-model="imageURL"></input>
+            <input placeholder="Species" ng-model="contributor"></input>
+            <select id="select" ng-model="selectedValue">
+            <option  ng-repeat="x in names">{{x}}</option>
+            </select>
+            <button id="create" type="submit">Create Your Character</button>
+        </form>
+        
+        <br>
+        <br>
+        <div class="charblock" ng-repeat="post in posts | orderBy: '-upvotes'">
+            <div class="card">
+                <div class="column is-half is-offset-one-quarter">
+                    <div class = "title is-5">
+            {{post.title}} </div>
+            <img src= {{post.image}} alt= {{post.title}} > <br>
+            
+             <span class="glyphicon glyphicon-heart"></span>
+             HP: {{post.upvotes}} 
+             <br>
+             Species: {{post.contributor}}
+             <br>
+             This character is {{post.selectedValue}}
+             <br>
+             <span class= "glyphicon glyphicon-glass" ng-click="restoreHealth(post)"></span>&nbspGive Potion &nbsp
+             <span class= "glyphicon glyphicon-flash" ng-click="kill(post)"></span>&nbspKill &nbsp
+             <span class= "glyphicon glyphicon-fire" ng-click="damage(post)"></span>&nbspDamage &nbsp
+             <span class= "glyphicon glyphicon-transfer" ng-click="changeSides(post)"></span>&nbspChange Sides
+             <br>
+             </div>
+             </div>
+        </div>
+        
+
+    </div>
+    <footer>
+        <section class="section"></section>
+    </footer>
+</body>
+
+</html>
